@@ -38,7 +38,6 @@ public class MenuService {
 
     public boolean registMenu(MenuDTO menu) {
 
-
         SqlSession sqlSession = getSqlSession();
 
         int result = menuDAO.insertMenu(sqlSession, menu);
