@@ -1,7 +1,6 @@
 package com.ohgiraffers.section03.remix;
 
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.util.List;
 

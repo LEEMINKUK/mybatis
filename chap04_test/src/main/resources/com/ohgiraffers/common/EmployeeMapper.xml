@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ohgiraffers.common.EmployeeMapper">
+
+    <resultMap id="employeeResultMap" type="com.ohgiraffers.common.EmployeeDTO">
+        <id property="empId" column="EMP_ID"/>
+        <result property="empName" column="EMP_NAME"/>
+        <result property="empNo" column="EMP_NO"/>
+        <result property="email" column="EMAIL"/>
+        <result property="phone" column="PHONE"/>
+        <result property="deptCode" column="DEPT_CODE"/>
+        <result property="jobCode" column="JOB_CODE"/>
+        <result property="salLevel" column="SAL_LEVEL"/>
+        <result property="salary" column="SALARY"/>
+    </resultMap>
+
+    <select id="searchAll" resultMap="employeeResultMap">
+        SELECT
+                  EMP_ID
+                , EMP_NAME
+                , EMP_NO
+                , EMAIL
+                , PHONE
+                , DEPT_CODE
+                , JOB_CODE
+                , SAL_LEVEL
+                , SALARY
+            FROM EMPLOYEE
+            ORDER BY EMP_ID
+    </select>
+
+    <select id="searchDetailCode" parameterType="_int" resultMap="employeeResultMap">
+        SELECT
+              EMP_ID
+            , EMP_NAME
+            , EMP_NO
+            , EMAIL
+            , PHONE
+            , DEPT_CODE
+            , JOB_CODE
+            , SAL_LEVEL
+            , SALARY
+        FROM EMPLOYEE
+        WHERE EMP_ID=#{empId}
+    </select>
+
+
+    <insert id="insertEmp">
+        INSERT
+            INTO EMPLOYEE
+            (
+              EMP_NAME
+            , JOB_CODE
+            , SAL_LEVEL
+            , EMP_NO
+            , EMAIL
+            , PHONE
+            , DEPT_CODE
+            )
+        VALUES
+        (
+              #{empName}
+            , JOB_CODE='J7'
+            , SAL_LEVEL='S6'
+            , #{empNo}
+            , #{email}
+            , #{phone}
+            , #{deptCode}
+        )
+    </insert>
+
+    <update id="updateEmp">
+        UPDATE EMPLOYEE
+        SET EMP_ID = #{empId}
+            ,EMP_NAME = #{empName}
+            ,EMP_NO = #{empNo}
+            ,EMAIL = #{email}
+            ,PHONE = #{phone}
+        WHERE EMP_ID=#{empId}
+    </update>
+
+    <delete id="deleteEmp">
+        DELETE
+        FROM EMP_ID
+        WHERE EMP_ID = #{empId}
+    </delete>
+</mapper>

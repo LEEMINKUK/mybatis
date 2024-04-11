@@ -75,7 +75,7 @@ public class MenuController {
             printResult.printModifyMessage("modify");
         }else {
             printResult.printErrorMessage("modify");
-        };
+        }
     }
 
     public void deleteMenu(Map<String, String> parameter) {
@@ -89,6 +89,6 @@ public class MenuController {
             printResult.printDeleteMenuMessage("delete");
         }else {
             printResult.printErrorMessage("delete");
-        };
+        }
     }
 }

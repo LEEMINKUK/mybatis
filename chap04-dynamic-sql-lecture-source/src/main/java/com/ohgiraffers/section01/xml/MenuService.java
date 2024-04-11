@@ -16,7 +16,7 @@ public class MenuService {
     private DynamicSqlMapper mapper;
 
     public void selectMenuByPrice(int price) {
-        
+
         SqlSession sqlSession = getSqlSession();
 
         mapper = sqlSession.getMapper(DynamicSqlMapper.class);
